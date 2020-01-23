@@ -15,7 +15,7 @@ const Home = ({ posts }) => (
     <div className="hero">
       <h1 className="hero-title">Tırtıl Blog</h1>
       <div className="hero-social-links">
-        <Link href="https://www.instagram.com/dasatantirtil/?hl=en" >
+        <Link href="https://www.instagram.com" >
           <a className="social-link" target="_blank">Instagram</a>
         </Link>
       </div>
@@ -71,7 +71,8 @@ const Home = ({ posts }) => (
 
 Home.getInitialProps = async ({ req }) => {
   // TODO: aşağıdaki satırda bulunan adresi kendi sunucu adresinle değiştirmelisin
-  const res = await fetch("http://localhost:3000/api/posts");
+  //const res = await fetch("http://localhost:3000/api/posts");
+  const res = await fetch("https://tirtilblog.herokuapp.com/api/posts");
   const json = await res.json();
   return { posts: json.posts };
 };
